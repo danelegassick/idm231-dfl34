@@ -1,0 +1,439 @@
+
+* {
+    font-family: Arial, Helvetica, sans-serif ;
+    box-sizing: border-box;
+}
+
+html {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    margin: 0;
+}
+
+@font-face {
+    font-family: 'SNES';
+    src: url('/fonts/snes.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Redwing';
+    src: url('/fonts/redwing-light-webfont.woff2') format('woff2');
+    src: url('/fonts/redwing-medium-webfont.woff2') format('woff2');
+}
+
+p {
+    font-family: Roboto, Helvetic, sans-serif;
+    line-height: 1.5;
+}
+
+h1 {
+    font-size: 4rem;
+    margin-bottom: 0;
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--font-stack);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+
+input[type=text] {
+    border: none;
+    border: 2px solid #dd2020;
+    border-radius: 1rem;
+    padding:.25rem .5rem;
+}
+
+input[type=date] {
+    border: none;
+    border: 2px solid #dd2020;
+    border-radius: 1rem;
+    padding:.25rem .5rem;
+}
+
+
+:root {
+    --font-stack: 'SNES', Helvetica, sans-serif;
+    --dark: #0d0c0c;
+    --light: #f0f0f0;
+}
+
+.btn {
+  align-items: center;
+  background: white;
+  border: 0 solid #E2E8F0;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  box-sizing: border-box;
+  color: #1A202C;
+  font-family: var(--font-stack);
+  font-size: 1.25rem;
+  letter-spacing: 1px;
+  justify-content: center;
+  overflow-wrap: break-word;
+  padding: 1rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  width: fit-content;
+  border-radius: 8px;
+  cursor: pointer;
+  user-select: none;
+  touch-action: manipulation;
+}
+
+.top-half-zodiac {
+    background-color: var(--light);
+    height: 70vh;
+    display: grid;
+    justify-items: center;
+    grid-template-columns: 1fr 2fr 200px;
+    padding:  5rem 3rem 3rem;
+    width: 100%;
+    grid-template-areas: 
+    "text results inputs";
+}
+
+.top-half-text {
+    grid-area: text;
+}
+
+.what-character {
+    font-size: 6.5rem;
+    color: var(--dark);
+}
+
+.result-header {
+    font-size: 4rem;
+    color: var(--dark);
+    margin-bottom: 0;
+}
+
+.result-text {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--dark);
+    max-width: 400px;
+}
+
+.top-half-inputs {
+    text-align: end;
+    grid-area: inputs;
+}
+
+.input-label {
+    font-size: 2.5rem;
+    color: var(--dark);
+    margin-bottom: 0;
+}
+
+.line {
+    border-bottom: 1px solid var(--dark);
+}
+
+.results {
+    color: var(--dark);
+    display: grid;
+    grid-template-columns: 225px 1fr;
+    gap: 1rem;
+    align-self: center;
+    grid-area: results;
+}
+
+.bottom-half-zodiac {
+    background-color: #dd2020;
+    height: 40vh;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 3rem 0;
+    width: 100%;
+}
+
+.card {
+    height: 300px;
+    width: 225px;
+    border-radius: 10px;
+    padding: 0 1.25rem;
+    overflow: hidden;
+    background: #2c2731;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    position: relative;
+    display: inline-block;
+    margin-right: 1rem;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    color: white;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 100px 100px;
+    width: 100%;
+}
+
+.horizontal-scroll {
+    padding: 1rem;
+    margin-top: -150px;
+    overflow-x: scroll;
+    white-space: nowrap;
+    width: 100vw;
+    height: fit-content;
+}
+
+.mario-bg {
+    background-image: url("/idm231-dfl34/graphics/mario.jpg"); /* The image used */
+    background-color: #2c2731; /* Used if the image is unavailable */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+}
+
+.luigi-bg {
+    background-image: url("/idm231-dfl34/graphics/luigi.jpg"); /* The image used */
+    background-color: #2c2731; /* Used if the image is unavailable */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+}
+
+.wario-bg {
+    background-image: url("/idm231-dfl34/graphics/wario.jpg"); /* The image used */
+    background-color: #2c2731; /* Used if the image is unavailable */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+}
+
+.peach-bg {
+    background-image: url("/idm231-dfl34/graphics/peach.jpg"); /* The image used */
+    background-color: #2c2731; /* Used if the image is unavailable */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+}
+
+.waluigi-bg {
+    background-image: url("/idm231-dfl34/graphics/waluigi.jpg"); /* The image used */
+    background-color: #2c2731; /* Used if the image is unavailable */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+}
+
+.goomba-bg {
+    background-image: url("/idm231-dfl34/graphics/goomba.jpg"); /* The image used */
+    background-color: #2c2731; /* Used if the image is unavailable */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+}
+
+.yoshi-bg {
+    background-image: url("/idm231-dfl34/graphics/yoshi.jpg"); /* The image used */
+    background-color: #2c2731; /* Used if the image is unavailable */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+}
+
+.dk-bg {
+    background-image: url("/idm231-dfl34/graphics/donkey.jpg"); /* The image used */
+    background-color: #2c2731; /* Used if the image is unavailable */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+}
+
+.toad-bg {
+    background-image: url("/idm231-dfl34/graphics/toad.jpg"); /* The image used */
+    background-color: #2c2731; /* Used if the image is unavailable */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+}
+
+.rosalina-bg {
+    background-image: url("/idm231-dfl34/graphics/rosalina.jpg"); /* The image used */
+    background-color: #2c2731; /* Used if the image is unavailable */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+}
+
+.daisy-bg {
+    background-image: url("/idm231-dfl34/graphics/daisy.jpg"); /* The image used */
+    background-color: #2c2731; /* Used if the image is unavailable */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+}
+
+.bowser-bg {
+    background-image: url("/idm231-dfl34/graphics/bowser.jpg"); /* The image used */
+    background-color: #2c2731; /* Used if the image is unavailable */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+}
+
+.result-img {
+    width: 225px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    border-radius: 10px;
+    align-self: center;
+}
+
+.pop-up {
+    background-color: #fff;
+    position: fixed;
+    max-height: 90vh;
+    min-height: 31.25rem;
+    width: 50%;
+    margin: 0 25vw;
+    top: 10vh;
+    z-index: 10;
+    padding: 3rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    border-radius: 1rem;
+}
+
+.hidden {
+    display: none;
+}
+
+.up {
+    margin-top: -1.5rem;
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.subgrid {
+    display:grid;
+    justify-content: center;
+}
+
+.help-btn {
+    align-items: center;
+    background: white;
+    border: 0 solid #E2E8F0;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    box-sizing: border-box;
+    color: #1A202C;
+    font-family: var(--font-stack);
+    font-size: 1.25rem;
+    letter-spacing: 1px;
+    justify-content: center;
+    overflow-wrap: break-word;
+    padding: 1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    width: fit-content;
+    border-radius: 8px;
+    cursor: pointer;
+    user-select: none;
+    touch-action: manipulation;
+  }
+  
+  .have-fun {
+      font-size: 8rem;
+      margin: auto;
+      width: fit-content;
+  }
+
+  .bottom {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;    
+  }
+
+  .bottom-relative {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;    
+  }
+
+/* header */
+
+.topBlock-nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: absolute;
+    margin-top: -1rem;
+    width: 100vw;
+}
+
+.topBlock-nav-list {
+    line-height: 1.5;
+    list-style: none;
+    padding: 1rem;
+    text-align: right;
+}
+
+.topBlock-nav-list--index {
+    line-height: 1.25;
+    list-style: none;
+    padding: 1rem;
+}
+
+.topBlock-nav .link-style {
+	border-bottom: .125em solid #dd2020;
+	box-shadow: inset 0 -0.125em 0 #dd2020;
+	transition: box-shadow 300ms cubic-bezier(0.77, 0, 0.175, 1), color 300ms cubic-bezier(0.77, 0, 0.175, 1), text-decoration 300ms ease;
+    color: var(--dark);
+    font-family: var(--font-stack);
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    text-decoration: none;
+}
+
+.topBlock-nav .link-style:hover {
+    box-shadow: inset 0 -1.125em 0 #dd2020;
+    color: #000;
+    text-decoration: underline var(--dark);
+}
+
+.topBlock-nav .link-style:focus {
+    background: var(--light);
+    box-shadow: 8px 8px 24px rgba(0, 0, 0, 0.2);
+    color: white;
+    outline: none;
+}
+
+@media only screen and (max-width: 1400px) {
+    .top-half-zodiac {
+        height: fit-content;
+        padding-bottom: 6rem;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .top-half-zodiac {
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+        "text"
+        "inputs"
+        "results";
+    }
+
+    .top-half-inputs {
+        text-align: start;
+        width: 100%;
+    }
+
+    .results {
+        grid-template-columns: 1fr;
+    }
+
+    .what-character {
+        font-size: 4.5rem;
+        height: fit-content;
+        padding-bottom: 1rem;
+    }
+}
